@@ -38,10 +38,12 @@ function App() {
       <Nav />
       <div className="text-center md:mt-[10%] mt-[18%]">
         {/* <h1>3M Best Products Finder</h1> */}
-        <div className='w-full grid grid-cols-3 gap-1'>
-          <img src={mmmPic} className="align-middle" /> x
-          <img src={amazonPic} className="align-middle" />
+        <div className='flex text-xl'>
+          Search on <img src={amazonPic} className='ml-2 pt-[9px] mr-2 align-middle w-[8%]' />
         </div>
+      </div>
+      <div className='w-screen bg-zinc-500'>
+        <p className='text-2xl text-white text-center'>Results</p>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import mmm from '../../assets/3m.png'
 import {
   MenuIcon,
   XIcon,
@@ -46,8 +47,10 @@ function Nav() {
         <div className=" flex w-screen justify-between p-3">
           <div className="items-center">
             <a href={"/"}>
-              <h1 className="text-2xl font-bold md:text-4xl transition duration:500 hover:scale-110">
-                <span className='text-[#ff0000]'>3M</span> Best Product Finder
+              <h1 className="md:ml-2 text-2xl font-bold md:text-4xl transition duration:500 hover:scale-[102%]">
+              <span className='flex'><img src={mmm} className="align-middle md:w-[6%] w-[16%] mr-2" />
+              {/* <span className='text-[#ff0000]'>3M</span>  */}
+              Best Products Finder</span>
               </h1>
             </a>
           </div>
