@@ -12,6 +12,7 @@ function App() {
   const dispatch = useDispatch();
   const [defaultResults, setDefaultResults] = useState([]);
   const [rawDataResults, setRawDataResults] = useState('')
+  const [dataFlag, setDataFlag] = useState(false)
   const params = {
     api_key: apikey,
     type: "search",
@@ -38,8 +39,8 @@ function App() {
       });
   };
 
-  const clickItem = (link) => {
-    window.open(link)
+  const clickViewRawData = () => {
+    setDataFlag(!dataFlag)
   }
 
   useEffect(() => {
@@ -51,15 +52,17 @@ function App() {
       <Nav />
       <div className="md:mt-[6%] mt-[18%] w-full">
         {/* <h1>3M Best Products Finder</h1> */}
-        <div className="flex text-xl pl-2">
+        <div className="flex md:text-xl text-sm pl-2">
           Search for the highly rated products found on{" "}
           <img
             src={amazonPic}
-            className="ml-2 md:pt-[9px] pt-[10px] w-[18%] mr-2 align-middle md:w-[8%]"
+            className="ml-2 md:pt-[9px] pt-[4px] w-[18%] mr-2 align-middle md:w-[8%]"
           />
         </div>
-        <div className="flex">
+        <div className="flex justify-between">
           <button onClick={defaultSearch}>Default Search</button>
+          {!dataFlag && rawDataResults ? <button onClick={clickViewRawData}>View Raw Data</button> : <></> }
+          {dataFlag && rawDataResults ? <button onClick={clickViewRawData}>Back to Search Results</button> : <></>}
         </div>
       </div>
       <div className="w-screen bg-zinc-500 md:h-[70px] md:pt-2 md:mb-2">
@@ -67,6 +70,7 @@ function App() {
           Results
         </p>
       </div>
+      {!dataFlag ?
       <div className='w-full grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2'>
         {defaultResults.map(item => {
           return (
@@ -76,16 +80,19 @@ function App() {
               </div>
               <div className='flex flex-col justify-between h-[50%] pb-3 px-1'>
               <h1 className=''>{item.title}</h1>
-              {item.price.name ? <h1>{item.price.name}</h1> : <h1>${(Number(item.price.value)).toFixed(2)} </h1> }
+              {item.price.name ? <h1 className='text-center mt-2'>{item.price.name}</h1> : <h1 className='text-center mt-2'>${(Number(item.price.value)).toFixed(2)} </h1> }
               <div>
                 Rated <span className='font-bold text-orange-300'>{item.rating}</span> stars from <span className='font-bold'>{item.ratings_total}</span> reviews
                 </div>
               </div>
             </div>
-           
           )
         })}
+      </div> : 
+      <div>
+        {rawDataResults}
       </div>
+      }
     </div>
   );
 }
