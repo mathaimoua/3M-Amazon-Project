@@ -1,6 +1,10 @@
+import { useEffect } from 'react'
+
+
+
 import './App.css';
 
-console.log(process.env.API_KEY);
+const apikey = process.env.REACT_APP_RAINFOREST_API_KEY
 
 function App() {
   // const dispatch = useDispatch();
