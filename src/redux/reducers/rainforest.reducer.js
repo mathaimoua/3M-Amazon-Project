@@ -1,7 +1,7 @@
-const rainforestReducer = (state = { recentItems: [], numAssets: null, numLosses: null }, action) => {
+const rainforestReducer = (state = { defaultSearchItems: [], numAssets: null, numLosses: null }, action) => {
   switch (action.type) {
-    case "SET_RECENT_ITEMS":
-      return { ...state, recentItems: action.payload };
+    case "SET_DEFAULT_SEARCH_ITEMS":
+      return { ...state, defaultSearchItems: action.payload };
     case "SET_NUM_ASSETS":
       return { ...state, numAssets: action.payload };
     case "SET_LOSSES":
