@@ -46,9 +46,9 @@ function Nav() {
       >
         <div className=" flex w-screen justify-between p-3">
           <div className="items-center">
-            <a href={"/"}>
+            <a href={"/"} >
               <h1 className="md:ml-2 text-2xl font-bold md:text-4xl transition duration:500 hover:scale-[102%]">
-              <span className='flex'><img src={mmm} className="align-middle md:w-[6%] w-[16%] mr-2" />
+              <span className='flex'><img src={mmm} className="align-middle md:w-[6%] w-[16%] mr-2 md:mb-1" />
               {/* <span className='text-[#ff0000]'>3M</span>  */}
               Best Products Finder</span>
               </h1>
