@@ -65,7 +65,15 @@ function App() {
     }
     if (event.target.value === 'under50'){
       for (let i=0; i<originalData.length; i++){
-        if ( originalData[i].price.value < 50 || Number(originalData[i].price.name) < 50 ){
+        if ( originalData[i].price.value <= 50 || Number(originalData[i].price.name) < 50 ){
+          console.log('pushing', originalData[i].position)
+          newArr.push(originalData[i])
+        }
+      }
+    }
+    if (event.target.value === 'over50'){
+      for (let i=0; i<originalData.length; i++){
+        if ( originalData[i].price.value >= 50 || Number(originalData[i].price.name) < 50 ){
           console.log('pushing', originalData[i].position)
           newArr.push(originalData[i])
         }
@@ -93,8 +101,8 @@ function App() {
         <div className="flex justify-between">
           <button onClick={defaultSearch}>Default Search</button>
           {!dataFlag && rawDataResults ? (
-            <div className='pt-5 md:flex pb-2'>
-              <label htmlFor="filter" className='md:text-center' >Filters:</label>
+            <div className='pt-5 flex-col align-middle pb-2'>
+              <label htmlFor="filter" className='pl-[33%] md:pl-0' >Filter:</label>
               <select name="filter" id="filter" defaultValue={'None'} onChange={handleDrop}>
                 <option value="None" className='text-center'>None</option>
                 <option value="500" className='text-center'>Over 500 ratings</option>

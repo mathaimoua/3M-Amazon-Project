@@ -48,7 +48,7 @@ function Nav() {
           <div className="items-center">
             <a href={"/"} >
               <h1 className="md:ml-2 text-2xl font-bold md:text-4xl transition duration:500 hover:scale-[102%]">
-              <span className='flex'><img src={mmm} className="align-middle w-[10%] md:w-[8%] mr-2 md:mb-1" />
+              <span className='flex'><img src={mmm} className="align-middle w-[10%] md:w-[8%] lg:w-[6%] mr-2 md:mb-1" />
               {/* <span className='text-[#ff0000]'>3M</span>  */}
               Best Products Finder</span>
               </h1>
