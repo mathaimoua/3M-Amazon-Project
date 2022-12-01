@@ -102,8 +102,8 @@ function App() {
           <button onClick={defaultSearch}>Default Search</button>
           {!dataFlag && rawDataResults ? (
             <div className='pt-5 flex-col align-middle pb-2'>
-              <label htmlFor="filter" className='pl-[33%] md:pl-0' >Filter:</label>
-              <select name="filter" id="filter" defaultValue={'None'} onChange={handleDrop}>
+              <label htmlFor="filter" className='pl-[33%] md:pl-0 md:mr-2' >Filter:</label>
+              <select name="filter" className='border' id="filter" defaultValue={'None'} onChange={handleDrop}>
                 <option value="None" className='text-center'>None</option>
                 <option value="500" className='text-center'>Over 500 ratings</option>
                 <option value="under50" className='text-center'>Under $50.00</option>
